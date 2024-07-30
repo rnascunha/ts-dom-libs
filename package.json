@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/rnascunha/ts-dom-libs#readme",
   "exports": {
-    "./*.ts": "./src/lib/*.ts"
+    "./*": "./src/lib/*.ts"
   }
 }
