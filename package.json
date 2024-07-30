@@ -1,0 +1,26 @@
+{
+  "name": "ts-dom-libs",
+  "version": "1.0.0",
+  "description": "Generic utilities that I use in different projects.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rnascunha/ts-dom-libs.git"
+  },
+  "keywords": [
+    "dom",
+    "generic",
+    "typescript"
+  ],
+  "author": "Rafael Cunha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rnascunha/ts-dom-libs/issues"
+  },
+  "homepage": "https://github.com/rnascunha/ts-dom-libs#readme",
+  "exports": {
+    "./*.ts": "./src/lib/*.ts"
+  }
+}
