@@ -8,8 +8,9 @@
     "declaration": true,
     "outDir": "dist",
     "target": "ES2015",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
     "types": [ "@types/wicg-file-system-access", "gapi", "gapi.auth2", "google.accounts", "gapi.client.drive-v3"]
   },

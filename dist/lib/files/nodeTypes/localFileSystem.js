@@ -14,9 +14,9 @@ var __asyncValues = (this && this.__asyncValues) || function (o) {
     function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
     function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 };
-import { uploadFileList } from "@/lib/upload_file";
+import { uploadFileList } from "../../upload_file";
 import { defaultGetChildrenOptions, defaultThumbnailOptions, } from "../constants";
-import { resizeImageDataURL } from "@/lib/image";
+import { resizeImageDataURL } from "../../image";
 export class FileNode {
     constructor(handle, path_parent, children) {
         this._data = undefined;

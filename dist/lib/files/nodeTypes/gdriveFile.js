@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { defaultGetChildrenOptions, defaultThumbnailOptions, } from "../constants";
-import { resizeImageDataURL } from "@/lib/image";
+import { resizeImageDataURL } from "../../image";
 export class GDriveFile {
     constructor(handle, path_parent, children) {
         this._data = undefined;

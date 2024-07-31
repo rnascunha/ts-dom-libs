@@ -7,9 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { uploadFileList } from "@/lib/upload_file";
+import { uploadFileList } from "../../upload_file";
 import { defaultGetChildrenOptions, defaultThumbnailOptions, } from "../constants";
-import { resizeImageDataURL } from "@/lib/image";
+import { resizeImageDataURL } from "../../image";
 export class oldFileNode {
     constructor(file) {
         this._file = file;

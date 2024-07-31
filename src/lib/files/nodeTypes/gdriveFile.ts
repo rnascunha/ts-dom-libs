@@ -3,7 +3,7 @@ import {
   defaultThumbnailOptions,
 } from "../constants";
 import { GetChildrenOptions, IFileNode } from "../types";
-import { resizeImageDataURL } from "@/lib/image";
+import { resizeImageDataURL } from "../../image";
 
 export interface HTTPError {
   code: number;
