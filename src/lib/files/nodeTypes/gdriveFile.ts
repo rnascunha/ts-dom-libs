@@ -1,8 +1,7 @@
-import { responseToDataURL } from "@/appComponents/drivePlayground/functions";
 import {
   defaultGetChildrenOptions,
   defaultThumbnailOptions,
-} from "../contants";
+} from "../constants";
 import { GetChildrenOptions, IFileNode } from "../types";
 import { resizeImageDataURL } from "@/lib/image";
 
@@ -138,4 +137,40 @@ export class GDriveFile implements IFileNode {
     );
     return this._thumbnail;
   }
+}
+
+function stringBlobToBlob(
+  response: gapi.client.Response<gapi.client.drive.File>
+) {
+  const charArray = new Array(response.body.length);
+  for (let i = 0; i < response.body.length; i++) {
+    charArray[i] = response.body.charCodeAt(i);
+  }
+  const typedArray = new Uint8Array(charArray);
+
+  const blob = new Blob([typedArray], {
+    type: response.headers!["Content-Type"],
+  });
+  return blob;
+}
+
+function blobToURL(blob: Blob) {
+  return new Promise<string>((resolve, reject) => {
+    const fr = new FileReader();
+    fr.onload = function () {
+      if (fr.result) resolve(fr.result as string);
+      else reject(new Error("Error reading file"));
+    };
+    fr.onerror = function () {
+      reject(new Error("Error reading file"));
+    };
+    fr.readAsDataURL(blob);
+  });
+}
+
+function responseToDataURL(
+  response: gapi.client.Response<gapi.client.drive.File>
+) {
+  const blob = stringBlobToBlob(response);
+  return blobToURL(blob);
 }

@@ -2,7 +2,7 @@ import { uploadFileList } from "@/lib/upload_file";
 import {
   defaultGetChildrenOptions,
   defaultThumbnailOptions,
-} from "../contants";
+} from "../constants";
 import { GetChildrenOptions, IFileNode } from "../types";
 import { resizeImageDataURL } from "@/lib/image";
 

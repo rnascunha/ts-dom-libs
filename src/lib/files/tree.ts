@@ -1,4 +1,4 @@
-import { defaultCreateTreeOptions } from "./contants";
+import { defaultCreateTreeOptions } from "./constants";
 import { GDriveFile } from "./nodeTypes/gdriveFile";
 import { FileNode } from "./nodeTypes/localFileSystem";
 import { oldFileNodeDirectory, oldFileNodeFile } from "./nodeTypes/localOldAPI";

@@ -5,6 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rnascunha/ts-dom-libs.git"
@@ -20,7 +23,12 @@
     "url": "https://github.com/rnascunha/ts-dom-libs/issues"
   },
   "homepage": "https://github.com/rnascunha/ts-dom-libs#readme",
-  "exports": {
-    "./*": "./src/lib/*.ts"
+  "devDependencies": {
+    "@types/gapi": "^0.0.47",
+    "@types/gapi.auth2": "^0.0.60",
+    "@types/gapi.client.drive-v3": "^0.0.5",
+    "@types/google.accounts": "^0.0.14",
+    "@types/wicg-file-system-access": "^2023.10.5",
+    "typescript": "^5.5.4"
   }
 }

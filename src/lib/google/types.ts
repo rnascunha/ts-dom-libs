@@ -1,13 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
 
 export interface GoogleAPIState {
   api: boolean;
   gsi: boolean;
   signed: boolean;
 }
-
-export type SetGoogleAPIState<T extends GoogleAPIState = GoogleAPIState> = Dispatch<SetStateAction<T>>;
-
 
 export type GapiClientDriveFilesListArgs = Exclude<
   Parameters<typeof gapi.client.drive.files.list>[0],

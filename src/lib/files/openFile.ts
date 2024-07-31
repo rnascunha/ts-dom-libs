@@ -1,6 +1,6 @@
 // https://web.dev/patterns/files/open-a-directory
 
-import { defaultCreateTreeOptions } from "./contants";
+import { defaultCreateTreeOptions } from "./constants";
 import { createTreeNewAPI, createTreeOldAPI } from "./tree";
 import { CreateTreeOptions, IFileNode } from "./types";
 
