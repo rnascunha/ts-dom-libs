@@ -1,0 +1,10 @@
+import { Encoding } from "./types";
+export declare function split_binary(str: string): string[];
+export declare function split_octal(str: string): string[];
+export declare function split_decimal(str: string): string[];
+export declare function split_hexa(str: string): string[];
+export declare function split_text(str: string): string[];
+export declare function split_base64(str: string): string[];
+export declare function split(str: string, encode: Encoding): string[];
+export declare function clear_string(str: string, enc: Encoding): string;
+export declare function byteSize(enc: Encoding): number;
