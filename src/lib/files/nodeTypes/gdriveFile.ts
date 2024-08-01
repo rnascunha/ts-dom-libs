@@ -4,6 +4,7 @@ import {
 } from "../constants";
 import { GetChildrenOptions, IFileNode } from "../types";
 import { resizeImageDataURL } from "../../image";
+import { blobToURL, stringBlobToBlob } from "../../blob";
 
 export interface HTTPError {
   code: number;
@@ -139,38 +140,12 @@ export class GDriveFile implements IFileNode {
   }
 }
 
-function stringBlobToBlob(
+export function responseToDataURL(
   response: gapi.client.Response<gapi.client.drive.File>
 ) {
-  const charArray = new Array(response.body.length);
-  for (let i = 0; i < response.body.length; i++) {
-    charArray[i] = response.body.charCodeAt(i);
-  }
-  const typedArray = new Uint8Array(charArray);
-
-  const blob = new Blob([typedArray], {
-    type: response.headers!["Content-Type"],
-  });
-  return blob;
-}
-
-function blobToURL(blob: Blob) {
-  return new Promise<string>((resolve, reject) => {
-    const fr = new FileReader();
-    fr.onload = function () {
-      if (fr.result) resolve(fr.result as string);
-      else reject(new Error("Error reading file"));
-    };
-    fr.onerror = function () {
-      reject(new Error("Error reading file"));
-    };
-    fr.readAsDataURL(blob);
-  });
-}
-
-function responseToDataURL(
-  response: gapi.client.Response<gapi.client.drive.File>
-) {
-  const blob = stringBlobToBlob(response);
+  const blob = stringBlobToBlob(
+    response.body,
+    response.headers?.["Content-Type"]
+  );
   return blobToURL(blob);
 }

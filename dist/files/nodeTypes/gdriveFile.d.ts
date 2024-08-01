@@ -26,3 +26,4 @@ export declare class GDriveFile implements IFileNode {
     clear(): void;
     thumbnail(): Promise<string>;
 }
+export declare function responseToDataURL(response: gapi.client.Response<gapi.client.drive.File>): Promise<string>;

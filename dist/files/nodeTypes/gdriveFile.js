@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { defaultGetChildrenOptions, defaultThumbnailOptions, } from "../constants";
 import { resizeImageDataURL } from "../../image";
+import { blobToURL, stringBlobToBlob } from "../../blob";
 export class GDriveFile {
     constructor(handle, path_parent, children) {
         this._data = undefined;
@@ -116,33 +117,8 @@ export class GDriveFile {
         });
     }
 }
-function stringBlobToBlob(response) {
-    const charArray = new Array(response.body.length);
-    for (let i = 0; i < response.body.length; i++) {
-        charArray[i] = response.body.charCodeAt(i);
-    }
-    const typedArray = new Uint8Array(charArray);
-    const blob = new Blob([typedArray], {
-        type: response.headers["Content-Type"],
-    });
-    return blob;
-}
-function blobToURL(blob) {
-    return new Promise((resolve, reject) => {
-        const fr = new FileReader();
-        fr.onload = function () {
-            if (fr.result)
-                resolve(fr.result);
-            else
-                reject(new Error("Error reading file"));
-        };
-        fr.onerror = function () {
-            reject(new Error("Error reading file"));
-        };
-        fr.readAsDataURL(blob);
-    });
-}
-function responseToDataURL(response) {
-    const blob = stringBlobToBlob(response);
+export function responseToDataURL(response) {
+    var _a;
+    const blob = stringBlobToBlob(response.body, (_a = response.headers) === null || _a === void 0 ? void 0 : _a["Content-Type"]);
     return blobToURL(blob);
 }

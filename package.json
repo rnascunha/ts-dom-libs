@@ -5,9 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "dist/index.js",
+  "exports": {
+    "./*": "./dist/.*js"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rnascunha/ts-dom-libs.git"
